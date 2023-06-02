@@ -1,0 +1,205 @@
+/* font import from google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300;400;600&display=swap');
+
+/* universal selctor -- apply for each element */
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Source Serif Pro', serif;
+}
+
+/* hide scrollbar */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* css variables */
+
+:root {
+  --background: rgb(19, 19, 39);
+  --dark-text-color: rgba(212, 178, 11, .8);
+  --box-shadow-color: rgba(45, 45, 88, 0.74);
+  --text-shadow-color: rgba(212, 178, 11, 0.7);
+}
+
+/* container div */
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  max-height: 100vh;
+  background-color: var(--background);
+  color: var(--dark-text-color);
+}
+
+/* nav header  */
+.container nav {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px 0px var(--box-shadow-color);
+  font-weight: 600;
+  font-size: 30px;
+
+}
+
+/* main section */
+.container main {
+  max-height: calc(100vh - 62px);
+  min-height: calc(100vh - 62px);
+  position: relative;
+  text-align: center;
+  width: 60%;
+  padding: 10px;
+  margin: 10px auto;
+  overflow-y: scroll;
+}
+
+/* list styles */
+#alarms ul li {
+  list-style: none;
+  margin: 20px 5px;
+  text-align: left;
+}
+
+/* alarms style */
+#alarms ul li .alarm-container {
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: all 0.4s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#alarms ul li .alarm-delete {
+  color: red !important;
+  cursor: pointer;
+}
+
+#alarms ul li .alarm-container:hover {
+  box-shadow: 0px 0px 5px 2px var(--box-shadow-color);
+  transform: scale(1.03);
+}
+
+/* add alarm button style */
+.alarm-add {
+  position: fixed;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 100%;
+  transition: box-shadow .2s ease-in;
+}
+
+.alarm-add:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 6px 1px var(--text-shadow-color);
+}
+
+/* time format */
+.alarm-time {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+/* set alarm popup style & on alarm popup style */
+.alarm-set-container,
+.on-alarm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  height: 50%;
+  width: 70%;
+  background-color: var(--background);
+  box-shadow: 0 0 5px 2px var(--box-shadow-color);
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 20px;
+}
+
+/* form style */
+
+.alarm-set-container form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 5px;
+}
+
+/* inputs style */
+.alarm-set-container form input {
+  width: 100%;
+  padding: 5px;
+  color: var(--background);
+  outline: none;
+  border: none;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+
+.alarm-set-container form .action-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.alarm-set-container form button {
+  margin-top: 20px;
+  padding: 5px 20px;
+  outline: none;
+  border: none;
+  font-size: 20px;
+  border-radius: 5px;
+  background-color: var(--dark-text-color);
+  color: var(--background);
+  text-transform: uppercase;
+}
+
+.alarm-set-container form button:hover {
+  box-shadow: 0 0 3px 2px var(--text-shadow-color);
+}
+
+/* for blur  */
+.blur {
+  filter: blur(5px);
+}
+
+/* for hide */
+
+.hide {
+  display: none !important;
+}
+
+/* no alarm & on alarm */
+#no-alarm,
+.on-alarm {
+  font-size: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 80vh;
+}
+
+/* media query for smaller screen size */
+@media only screen and (max-width:700px) {
+  .container main {
+    width: 90%;
+  }
+
+  .alarm-set-container {
+    width: 90%;
+  }
+}
